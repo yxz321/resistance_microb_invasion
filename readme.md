@@ -1,5 +1,3 @@
-Note: for sequencing and the simulated results, the raw data are available only in [Figshare](https://doi.org/10.6084/m9.figshare.27168834), but processed data are available in Github/Supplementary Data File and are sufficient for reproducing all figures.
-
 `./rawdata_experiment/` contains code and data files to reproduce all figures about experimental results (including predictions). Run `figs_experiment.ipynb` for plotting the figures. Data files for each figure are listed below.
 * Fig.1c - SL_comp_cfu.xlsx
 * Fig.1d - CM_comp_cfu.xlsx
@@ -19,6 +17,8 @@ Note: for sequencing and the simulated results, the raw data are available only 
 * Sup Fig.7 - CM_inv_luc.xlsx
 * Sup Fig.8 - SL_comp_cfu.xlsx
 * Sup Fig.9 - CM_comp_cfu.xlsx
+
+Note: for sequencing and the simulated results as below, the raw data are available only in [Figshare](https://doi.org/10.6084/m9.figshare.27168834) due to size limitations.
 
 `./raw_16S_sequencing/` contains raw Illumina sequencing files and the bash script for generating the read count table in `./rawdata_experiment/`.
 
