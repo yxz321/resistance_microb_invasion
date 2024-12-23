@@ -171,19 +171,6 @@ class ResourceModel:
         else:
             raise ValueError('Invalid parameter name: {}'.format(name))
 
-    def dNdt_dRdt_old(self, N, R):
-        p_avail = self.p * (R > 0)  # available resource usage
-        p_avail_rowsum = np.sum(p_avail, axis=1)  # row sum of available resource usage
-        p_rel = p_avail / p_avail_rowsum.reshape([-1, 1])  # realized resource usage preference
-        p_rel[p_avail_rowsum <= 0] = 0  # if no resource is available, no resource is used
-        N_gr = N * (p_avail_rowsum > 0)  # growth only when resource is available
-        dNdt = self.r * np.maximum(0, 1 - np.dot(R, self.c.T)) * N_gr  # growth, with resource-mediated inhibition
-
-        R_sec = self.b * N_gr.reshape([-1, 1])  # secretion matrix
-        # - uptake (for growth + for secretion) + secretion
-        dRdt = - np.sum((dNdt + R_sec.sum(axis=1)).reshape([-1, 1]) * p_rel, axis=0) + R_sec.sum(axis=0)
-        return np.concatenate([dNdt, dRdt])
-
     def dNdt_dRdt(self, N, R):
         N = copy.deepcopy(N)
         N[N < 0] = 0  # treat negative values (occur due to numerical accuracy limit) as 0
