@@ -1,3 +1,5 @@
+Code and data for paper "Biotic resistance predictably shifts microbial invasion regimes" (https://www.nature.com/articles/s41467-025-59285-1)
+
 `./rawdata_experiment/` contains code and data files to reproduce all figures about experimental results (including predictions). Run `figs_experiment.ipynb` for plotting the figures. Data files for each figure are listed below.
 * Fig.1c - SL_comp_cfu.xlsx
 * Fig.1d - CM_comp_cfu.xlsx
